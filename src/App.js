@@ -1,12 +1,27 @@
-import './App.css';
-import Hello from './component/Hello';
+import DayList from './component/DayList';
+import Day from './component/Day';
+import Header from './component/Header';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
+
 
 
 function App() {
   return (
-    <div className="App">
-      <Hello />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <DayList />
+          </Route>
+          <Route path="/day">
+            <Day />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
