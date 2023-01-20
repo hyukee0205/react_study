@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-class Subject extends Component {
+class Content extends Component {
   render() {
-    console.log('Content 렌더링 완료')
+    console.log("Content.js 렌더링 완료")
     return (
       <header>
-        <h1>{this.props.title}</h1>
-        {this.props.desc}
-      </header>
+          <h1>{this.props.title}</h1>
+          {this.props.desc}
+      </header>  
     );
   }
 }
 
-export default Subject;
+export default Content;
