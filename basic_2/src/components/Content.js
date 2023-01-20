@@ -1,10 +1,15 @@
-function Content() {
-  return (
-    <article>
-       <h2>HTML</h2>
-       HTML is HyperText Markup Language.
-    </article>
-  );
-}   
+import React, { Component } from 'react';
 
-export default Content;
+class Subject extends Component {
+  render() {
+    console.log('Content 렌더링 완료')
+    return (
+      <header>
+        <h1>{this.props.title}</h1>
+        {this.props.desc}
+      </header>
+    );
+  }
+}
+
+export default Subject;
