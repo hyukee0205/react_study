@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function AppMentor(props) {
+export default function AppMentor() {
   const [person, setPerson] = useState({
     name: '엘리',
     title: '개발자',
@@ -22,7 +22,7 @@ export default function AppMentor(props) {
           const name = prompt(`what's your mentor's name?`);
           setPerson((person) => ({
             ...person,
-            mentor: { ...person.mentor, name: name }
+            mentor: { ...person.mentor, name },
           }));
         }}
       >
@@ -33,8 +33,8 @@ export default function AppMentor(props) {
           const title = prompt(`what's your mentor's title?`);
           setPerson((person) => ({
             ...person,
-            mentor: { ...person.mentor, title: title }
-          }))
+            mentor: { ...person.mentor, title },
+          }));
         }}
       >
         멘토 타이틀 바꾸기
