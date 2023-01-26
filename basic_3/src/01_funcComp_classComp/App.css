@@ -1,0 +1,6 @@
+/* 컨테이너에 테두리 적용 */
+.container{
+  border:5px solid teal;
+  margin:5px;
+  padding:5px;
+} 
