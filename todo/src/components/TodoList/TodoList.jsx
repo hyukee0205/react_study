@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import AddTodo from '../AddTodo/AddTodo';
 import Todo from '../Todo/Todo';
+import styles from './TodoList.module.css';
+
 
 export default function TodoList({filter}) {
 
@@ -22,8 +24,8 @@ export default function TodoList({filter}) {
   const filtered = getFilteredItems(todos, filter);
 
   return (
-    <section>
-      <ul>
+    <section className={styles.container}>
+      <ul className={styles.list}>
         {filtered.map((item) => (
             <Todo 
             key={item.id} 
@@ -33,9 +35,6 @@ export default function TodoList({filter}) {
             ))}
       </ul>
       <AddTodo onAdd={handleAdd}/>
-
-      <button>삭제</button>
-
     </section>
   );
 }
