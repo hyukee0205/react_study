@@ -10,6 +10,7 @@ import NewProduct from './pages/NewProduct';
 import ProductDetail from './pages/ProductDetail';
 import MyCart from './pages/MyCart';
 import ProtectedRoute from './pages/ProtectedRoute';
+import AllProducts from './pages/AllProducts';
 
 
 
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      {index: true, path: '/', element: <Home />},
+      { index: true, path: '/', element: <Home /> },
+      { path: '/products', element: <AllProducts /> },
       {
         path: '/products/new',
         element: (
