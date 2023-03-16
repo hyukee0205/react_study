@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import { login, logout, onUserStateChange } from '../api/firebase';
+import { useAuthContext } from '../context/AuthContext';
+import Button from './ui/Button';
 import User from './User';
 
 
 
 
 export default function Navbar() {
-  const [user, setUser] = useState();
-  
-  useEffect(() => {
-    onUserStateChange((user) => {
-      setUser(user);
-    });
-  }, []);
+  const {user, login, logout} = useAuthContext();
   
   return (
     <header className='flex justify-between border-b p-4'>
@@ -22,11 +18,13 @@ export default function Navbar() {
       </Link>
       <nav className='flex items-center gap-4 font-semibold text-xl'>
         <Link to='/products'>Products</Link>
-        <Link to='/carts'>Carts</Link>
-        <Link to='/products/new'>상품등록!</Link>
+        {user && <Link to='/carts'>Carts</Link>}
+        {user && user.isAdmin && (
+          <Link to='/products/new'>상품등록!</Link>
+        )}
         {user && <User user={user} />}
-        {!user && <button onClick={login}>Login</button>}
-        {user && <button onClick={logout}>Logout</button>}
+        {!user && <Button text={'Login'} onClick={login} />}
+        {user && <Button text={'Logout'} onClick={logout} />}
       </nav>
     </header>
   );
