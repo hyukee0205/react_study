@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import Button from './ui/Button';
 import User from './User';
-
+import CartStatus from './CartStatus';
 
 
 
@@ -17,7 +17,7 @@ export default function Navbar() {
       </Link>
       <nav className='flex items-center gap-4 font-semibold text-xl'>
         <Link to='/products'>Products</Link>
-        {user && <Link to='/carts'>Carts</Link>}
+        {user && <Link to='/carts'><CartStatus /></Link>}
         {user && user.isAdmin && (
           <Link to='/products/new'>상품등록!</Link>
         )}
