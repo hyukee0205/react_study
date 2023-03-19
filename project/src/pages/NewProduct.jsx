@@ -1,7 +1,7 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { uploadImage } from '../api/uploader';
 import Button from '../components/ui/Button';
+import useProducts from '../hooks/useProducts';
 
 
 export default function NewProduct() {
@@ -9,12 +9,7 @@ export default function NewProduct() {
   const [file, setFile] = useState();
   const [isUploading, setIsUploading] = useState(false);
   const [success, setSuccess] = useState();
-
-  const queryClient = useQueryClient();
-  const addProduct = useMutation(({product, url}) => addNewProduct(product, url), {
-    onSuccess: () => queryClient.invalidateQueries(['products']),
-  });
-
+  const {addProduct} = useProducts();
 
   const handleChange = (e) => {
     const {name, value, files} = e.target;

@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import useProducts from '../hooks/useProducts';
 
 export default function Products() { 
-  const {getProducts: {isLoading, error, data:products}} = useProducts();
+  const {productsQuery: {isLoading, error, data:products}} = useProducts();
   return (
     <>
       {isLoading && <p>Loading ...</p>}
