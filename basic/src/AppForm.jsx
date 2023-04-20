@@ -7,7 +7,6 @@ export default function AppForm() {
     console.log(form);
   };
   const handleChange = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setFrom({ ...form, [name]: value });
   };
