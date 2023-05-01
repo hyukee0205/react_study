@@ -1,11 +1,19 @@
 import { Outlet } from 'react-router-dom';
-import SeacrchHeader from './components/SeacrchHeader';
+import SearchHeader from './components/SearchHeader';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import { YoutubeApiProvider } from './context/YoutubeApiContext';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <SeacrchHeader />
-      <Outlet />
+      <SearchHeader />
+      <YoutubeApiProvider>
+        <QueryClientProvider client={queryClient}>
+          <Outlet />
+        </QueryClientProvider>
+      </YoutubeApiProvider>
     </>
   );
 }
