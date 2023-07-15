@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
 
- const ErrorBanner = ({message}) => {
-  let errorMessage = message || '에러입니다.';
-
-  return (
-    <div>
-      {errorMessage}
-    </div>
-  );
+const ErrorBanner = ({ message }) => {
+    let errorMessage = message || "에러입니다.";
+    return (
+        <div
+            style={{ backgroundColor: 'red' }}
+        >
+            {errorMessage}
+        </div>
+    )
 }
 
-export default ErrorBanner;
+export default ErrorBanner
